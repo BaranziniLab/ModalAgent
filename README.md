@@ -1,42 +1,37 @@
 # ModalAgent
 
-MCP helper for Modal compute projects, deployment planning, environment validation, and guarded command/API invocation for cloud scientific jobs.
+Retired. This extension no longer calls Modal and only reports that it is retired. Remove it.
 
-This repository follows the BioRouter `.brxt` extension convention used by `SPOKEAgent` and `UCSFOMOPAgent`: a root `manifest.json`, Python package under `src/`, and optional bundled skills under `skills/`.
+Current version: **0.2.0**
+
+> **Retired.** ModalAgent was retired on 2026-11-22 and no longer calls any service. Why: Modal ships its own command line, which the Developer extension runs with the secret guard in place, so a separate wrapper is not needed. Use instead: Use the modal command line through the Developer extension, with the gpu-compute-optimization skill.
+
+This is the final release of a retired Biorouter extension. It replaces every
+earlier tool with one, `modal_status`, which shows the notice above. It holds no
+credentials, reads no setting and calls no service. Remove the extension in
+Biorouter once you no longer need the notice.
 
 ## Tools
 
-- `get_modalagent_status`: report configured environment variables without revealing secrets.
-- `get_modalagent_request_plan`: explain whether an API request is read-only or requires explicit mutation approval.
-- `call_modalagent_api`: call a platform API endpoint with write methods blocked unless `allow_mutation=true`.
-- `summarize_modalagent_resource`: summarize a JSON export or API payload without making a network call.
+- `modal_status`: shows why ModalAgent was retired and what to use instead. It calls no service.
 
-## Configuration
+## Bundled skills
 
-| Variable | Required | Secret | Purpose |
-|---|---:|---:|---|
-| `MODAL_TOKEN_ID` | true | true | Modal token id |
-| `MODAL_TOKEN_SECRET` | true | true | Modal token secret |
-| `MODAL_LOG_LEVEL` | false | false | Logging level |
+Every skill an earlier release bundled is kept, and each now says where its content
+moved. An update never deletes a file an earlier version installed, so keeping the
+paths is what replaces the old instructions.
 
-
-## Build
+## Develop and release
 
 ```bash
 uv sync
-scripts/build_brxt.sh
+uv run python -m unittest discover -s tests -v
+uv run python scripts/build_brxt.py
 ```
 
-The bundle is written to `dist/modalagent.brxt`.
-
-## Install in BioRouter
-
-```bash
-biorouter extension install dist/modalagent.brxt
-```
-
-Add the required secrets with `--secret KEY=value` or configure them in the BioRouter UI.
+Do not edit `src/modalagent/_kit/` or `tests/kit_testing/`: they are vendored from the BRXT
+adapter kit in the Biorouter repository (`scripts/brxt-adapter-kit/`).
 
 ## License
 
-Apache-2.0. See `LICENSE`.
+Apache-2.0. See `LICENSE` and `NOTICE`.

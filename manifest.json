@@ -1,40 +1,17 @@
 {
   "name": "modalagent",
   "display_name": "ModalAgent",
-  "description": "MCP helper for Modal compute projects, deployment planning, environment validation, and guarded command/API invocation for cloud scientific jobs.",
-  "version": "0.1.0",
+  "description": "Retired. This extension no longer calls Modal and only reports that it is retired. Remove it.",
+  "version": "0.2.0",
   "entry_point": "modalagent",
   "repository": "https://github.com/BaranziniLab/ModalAgent",
   "license": "Apache-2.0",
-  "tools_count": 4,
-  "env_vars": [
-    {
-      "key": "MODAL_TOKEN_ID",
-      "required": true,
-      "auto_propagate": false,
-      "description": "Modal token id",
-      "secret": true
-    },
-    {
-      "key": "MODAL_TOKEN_SECRET",
-      "required": true,
-      "auto_propagate": false,
-      "description": "Modal token secret",
-      "secret": true
-    },
-    {
-      "key": "MODAL_LOG_LEVEL",
-      "required": false,
-      "auto_propagate": true,
-      "default": "INFO",
-      "description": "Logging level",
-      "secret": false
-    }
-  ],
+  "tools_count": 1,
+  "env_vars": [],
   "skills": [
     {
       "name": "modal-compute",
-      "description": "Use ModalAgent for Modal platform-aware scientific workflow inspection and guarded API access."
+      "description": "Moved: use gpu-compute-optimization instead."
     }
   ]
 }

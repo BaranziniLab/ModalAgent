@@ -1,0 +1,14 @@
+{
+  "kit_spec": 1,
+  "service": "modal",
+  "service_title": "Modal",
+  "kind": "tombstone",
+  "notice": {
+    "status": "retired",
+    "date": "2026-11-22",
+    "reason": "Modal ships its own command line, which the Developer extension runs with the secret guard in place, so a separate wrapper is not needed.",
+    "use_instead": "Use the modal command line through the Developer extension, with the gpu-compute-optimization skill."
+  },
+  "id": "modalagent",
+  "display_name": "ModalAgent"
+}

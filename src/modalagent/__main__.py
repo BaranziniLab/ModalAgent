@@ -1,4 +1,4 @@
-from modalagent.cli import main
+from modalagent.server import main
 
 if __name__ == "__main__":
     main()
